@@ -12,26 +12,22 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         body {
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
-                        url('https://i.imgur.com/7kY3s5j.jpg');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('bg.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: #fff;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             min-height: 100vh;
         }
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             overflow: hidden;
+            border: 3px solid #fff;
         }
         .logo img {
             width: 100%;
@@ -39,14 +35,12 @@
             object-fit: cover;
         }
         .brand-name {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: bold;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            margin-bottom: 12px;
         }
         .brand-desc {
             font-size: 18px;
-            line-height: 1.6;
             margin-bottom: 30px;
             opacity: 0.95;
         }
@@ -54,43 +48,36 @@
             width: 60px;
             height: 2px;
             background: #fff;
-            margin: 0 auto 30px;
+            margin: 0 auto 35px;
         }
         .intro-text {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            margin-bottom: 40px;
         }
         .wx-btn {
             background: #07C160;
             color: white;
             border: none;
-            border-radius: 8px;
-            padding: 20px 30px;
+            border-radius: 10px;
+            padding: 22px 35px;
             font-size: 20px;
-            font-weight: 500;
             width: 100%;
-            margin-bottom: 30px;
             cursor: pointer;
         }
         .wx-id {
             font-size: 16px;
-            opacity: 0.9;
             margin-top: 8px;
         }
     </style>
 </head>
 <body>
     <div class="logo">
-        <img src="https://i.imgur.com/8Z1qQ9x.png" alt="Artisan Studio Logo">
+        <img src="logo.jpg" alt="Logo">
     </div>
 
     <div class="brand-name">ARTISAN STUDIO</div>
-
-    <div class="brand-desc">
-        8年原版开发 · 高端复刻天花板
-    </div>
+    <div class="brand-desc">8年原版开发 · 高端复刻天花板</div>
 
     <div class="divider"></div>
 
@@ -102,22 +89,20 @@
 
     <button class="wx-btn" id="addWx">
         点击添加店主
-        <div class="wx-id">微信/Wechat: BLCG0592</div>
+        <div class="wx-id">微信: BLCG0592</div>
     </button>
 
-    <script>
-        const wechatID = "BLCG0592";
-        const btn = document.getElementById('addWx');
-
-        btn.addEventListener('click', function() {
-            navigator.clipboard.writeText(wechatID).then(() => {
-                alert('✅ 微信号已复制成功：' + wechatID + '\n请打开微信粘贴搜索添加店主');
-                window.location.href = 'weixin://';
-            }).catch(() => {
-                alert('⚠️ 复制失败，请手动复制微信号：' + wechatID);
-                window.location.href = 'weixin://';
-            });
-        });
-    </script>
+<script>
+const wechatID = "BLCG0592";
+document.getElementById("addWx").onclick = function(){
+    navigator.clipboard.writeText(wechatID).then(()=>{
+        alert("✅ 微信号已复制："+wechatID+"\n已打开微信，直接粘贴搜索");
+        window.location.href="weixin://";
+    }).catch(()=>{
+        alert("请复制微信号："+wechatID);
+        window.location.href="weixin://";
+    });
+}
+</script>
 </body>
 </html>
