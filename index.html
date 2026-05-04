@@ -12,16 +12,16 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         body {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://i.imgur.com/m9LrW5X.jpg');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('https://i.imgur.com/XVEkXn1.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: #fff;
             text-align: center;
             padding: 40px 20px;
             min-height: 100vh;
         }
-        /* 你的Logo样式 */
         .logo {
             width: 120px;
             height: 120px;
@@ -38,14 +38,12 @@
             height: 100%;
             object-fit: cover;
         }
-        /* 品牌名称 */
         .brand-name {
             font-size: 32px;
             font-weight: bold;
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
-        /* 品牌描述 */
         .brand-desc {
             font-size: 18px;
             line-height: 1.6;
@@ -58,14 +56,12 @@
             background: #fff;
             margin: 0 auto 30px;
         }
-        /* 服务介绍 */
         .intro-text {
             font-size: 18px;
             line-height: 1.8;
             margin-bottom: 30px;
             opacity: 0.9;
         }
-        /* 微信按钮 */
         .wx-btn {
             background: #07C160;
             color: white;
@@ -86,29 +82,24 @@
     </style>
 </head>
 <body>
-    <!-- 1. 你的Logo（已嵌入） -->
     <div class="logo">
-        <img src="https://i.imgur.com/8Z1qQ9x.png" alt="Artisan Studio Logo">
+        <img src="https://i.imgur.com/t1pvZB0.jpg" alt="Logo">
     </div>
 
-    <!-- 2. 品牌名称 -->
     <div class="brand-name">ARTISAN STUDIO</div>
 
-    <!-- 3. 品牌描述 -->
     <div class="brand-desc">
         8年原版开发 · 高端复刻天花板
     </div>
 
     <div class="divider"></div>
 
-    <!-- 4. 服务介绍 -->
     <div class="intro-text">
         奢牌鞋服对标级工艺<br>
         全球可发 | 货到付款<br>
         开箱验货 | 7天无理由退换
     </div>
 
-    <!-- 5. 微信按钮（带你的微信号） -->
     <button class="wx-btn" id="addWx">
         点击添加店主
         <div class="wx-id">微信/Wechat: BLCG0592</div>
@@ -119,10 +110,8 @@
         const btn = document.getElementById('addWx');
 
         btn.addEventListener('click', function() {
-            // 复制微信号
             navigator.clipboard.writeText(wechatID).then(() => {
                 alert('✅ 微信号已复制成功：' + wechatID + '\n请打开微信粘贴搜索添加店主');
-                // 唤起微信
                 window.location.href = 'weixin://';
             }).catch(() => {
                 alert('⚠️ 复制失败，请手动复制微信号：' + wechatID);
