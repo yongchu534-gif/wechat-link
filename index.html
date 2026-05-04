@@ -12,18 +12,15 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         body {
-            /* 图片没加载完先显示深色底色，杜绝白屏 */
             background-color: #0b0b0b;
-            /* 用你现在的 bg.webp */
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
-                        url('bg.webp');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('bg.webp');
             background-size: cover;
-            background-position: center top;
+            background-position: center;
             background-repeat: no-repeat;
-            min-height: . 100vh;
             color: #fff;
             text-align: center;
             padding: 50px 20px;
+            min-height: 100vh;
         }
         .logo {
             width: 130px;
@@ -50,7 +47,7 @@
         }
         .divider {
             width: 60px;
-            height: 2.5px;
+            height: 2px;
             background: #fff;
             margin: 0 auto 35px;
         }
@@ -65,7 +62,7 @@
             border: none;
             border-radius: 10px;
             padding: 22px 35px;
-            font-size: 29px;
+            font-size: 20px;
             width: 100%;
             cursor: pointer;
         }
@@ -91,7 +88,6 @@
     </style>
 </head>
 <body>
-
     <div class="logo">
         <img src="logo.jpg" alt="Logo">
     </div>
@@ -120,14 +116,8 @@
 <script>
 const wechatID = "BLCG0592";
 const qrcodeBox = document.getElementById("qrcodeBox");
-
 document.getElementById("addWx").onclick = function(){
-    navigator.clipboard.writeText(wechatID).then(()=>{
-        alert("✅ 微信号已复制：" + wechatID);
-    }).catch(()=>{
-        alert("请复制微信号：" + wechatID);
-    });
-    // 只显示二维码，不跳转微信
+    navigator.clipboard.writeText(wechatID);
     qrcodeBox.style.display = "block";
 }
 </script>
