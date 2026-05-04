@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加微信</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f7f7f7;
+            font-family: -apple-system,BlinkMacSystemFont,sans-serif;
+        }
+        .wx-btn {
+            padding: 16px 45px;
+            background: #07C160;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .tip {
+            margin-top: 25px;
+            font-size: 15px;
+            color: #555;
+            text-align: center;
+        }
+        .wx-num {
+            color: #07C160;
+            font-weight: bold;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <button class="wx-btn" id="addWx">一键添加微信</button>
+    <div class="tip">
+        微信号：<span class="wx-num">BLCG0592</span><br>
+        点击自动复制并唤起微信
+    </div>
+
+    <script>
+        let wxId = "BLCG0592";
+        document.getElementById("addWx").onclick = function(){
+            navigator.clipboard.writeText(wxId).then(function(){
+                alert("✅ 微信号已复制：" + wxId + "\n已为你打开微信，直接粘贴搜索即可");
+                window.location.href = "weixin://";
+            }).catch(function(){
+                alert("请手动复制微信号：" + wxId);
+                window.location.href = "weixin://";
+            });
+        }
+    </script>
+</body>
+</html>
