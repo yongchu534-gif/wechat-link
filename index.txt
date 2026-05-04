@@ -13,7 +13,7 @@
         }
         body {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://i.imgur.com/88hWdbO.jpeg');
+                        url('bg.jpg');
             background-size: cover;
             background-position: center;
             color: #fff;
@@ -69,16 +69,29 @@
             font-size: 16px;
             margin-top: 8px;
         }
+        /* 二维码样式 */
+        .qrcode-box {
+            display: none;
+            margin-top: 30px;
+        }
+        .qrcode-box img {
+            width: 220px;
+            height: 220px;
+            border-radius: 12px;
+            border: 3px solid #fff;
+        }
+        .qrcode-tip {
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
-
-    <!-- 你的 LOGO -->
     <div class="logo">
-        <img src="https://i.imgur.com/vkyw34S.jpeg" alt="Logo">
+        <img src="logo.jpg" alt="Logo">
     </div>
 
-    <!-- 品牌信息 -->
     <div class="brand-name">ARTISAN STUDIO</div>
     <div class="brand-desc">8年原版开发 · 高端复刻天花板</div>
 
@@ -90,22 +103,34 @@
         开箱验货 | 7天无理由退换
     </div>
 
-    <!-- 微信按钮 -->
     <button class="wx-btn" id="addWx">
         点击添加店主
         <div class="wx-id">微信: BLCG0592</div>
     </button>
 
+    <!-- 二维码区域（点击按钮后显示） -->
+    <div class="qrcode-box" id="qrcodeBox">
+        <img src="qrcode.jpg" alt="微信二维码">
+        <div class="qrcode-tip">扫码添加微信，或直接打开微信搜索</div>
+    </div>
+
 <script>
 const wechatID = "BLCG0592";
+const qrcodeBox = document.getElementById("qrcodeBox");
+
 document.getElementById("addWx").onclick = function(){
+    // 1. 复制微信号
     navigator.clipboard.writeText(wechatID).then(()=>{
-        alert("✅ 微信号已复制："+wechatID+"\n已打开微信，直接粘贴搜索");
-        window.location.href="weixin://";
+        alert("✅ 微信号已复制："+wechatID+"\n已打开微信，也可扫码添加");
     }).catch(()=>{
         alert("请复制微信号："+wechatID);
-        window.location.href="weixin://";
     });
+
+    // 2. 显示二维码
+    qrcodeBox.style.display = "block";
+
+    // 3. 唤起微信
+    window.location.href="weixin://";
 }
 </script>
 </body>
