@@ -19,7 +19,7 @@
             background-repeat: no-repeat;
             color: #fff;
             text-align: center;
-            padding: 50px 20px;
+            padding: 50px 20px 180px; /* 底部留空给二维码 */
             min-height: 100vh;
         }
         .logo {
@@ -66,28 +66,36 @@
             width: 100%;
             cursor: pointer;
         }
-        .wx-id {
-            font-size: 16px;
+        .wx-btn-tip {
+            font-size: 14px;
             margin-top: 8px;
+            opacity: 0.9;
         }
-        .qrcode-box {
-            display: none;
-            margin-top: 30px;
+        /* 二维码固定在底部 */
+        .qrcode-footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            text-align: center;
         }
-        .qrcode-box img {
-            width: 240px;
-            height: 240px;
-            border-radius: 12px;
-            border: 3px solid #fff;
+        .qrcode-footer img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            border: 2px solid #fff;
         }
-        .qrcode-tip {
-            margin-top: 15px;
-            font-size: 16px;
+        .qrcode-footer-tip {
+            margin-top: 10px;
+            font-size: 14px;
             opacity: 0.9;
         }
     </style>
 </head>
 <body>
+
     <div class="logo">
         <img src="logo.jpg" alt="Logo">
     </div>
@@ -99,26 +107,32 @@
 
     <div class="intro-text">
         奢牌鞋服对标级工艺<br>
-        全球可发 | 支持花呗/信用卡<br>
-        开箱验货 | 到货7天无理由退换
+        快递全球可发 | 支持花呗、信用卡<br>
+        支持开箱验货 | 到货7天内不影响二次销售情况下支持无理由退换
     </div>
 
     <button class="wx-btn" id="addWx">
-        点击添加店主
-        <div class="wx-id">微信: BLCG0592</div>
+        点击添加店主微信号
+        <div class="wx-btn-tip">截图二维码到微信扫一扫添加好友</div>
     </button>
 
-    <div class="qrcode-box" id="qrcodeBox">
+    <!-- 二维码一直显示在底部 -->
+    <div class="qrcode-footer">
         <img src="qrcode.jpg" alt="微信二维码">
-        <div class="qrcode-tip">扫码添加微信，或直接搜索微信号</div>
+        <div class="qrcode-footer-tip">扫码或搜索微信号：BLCG0592</div>
     </div>
 
 <script>
 const wechatID = "BLCG0592";
-const qrcodeBox = document.getElementById("qrcodeBox");
 document.getElementById("addWx").onclick = function(){
-    navigator.clipboard.writeText(wechatID);
-    qrcodeBox.style.display = "block";
+    // 1. 复制微信号
+    navigator.clipboard.writeText(wechatID).then(()=>{
+        // 2. 尝试跳微信（移动端有效）
+        window.location.href = "weixin://";
+        alert("✅ 微信号已复制！正在打开微信…");
+    }).catch(()=>{
+        alert("❌ 复制失败，请手动复制：" + wechatID);
+    });
 }
 </script>
 </body>
