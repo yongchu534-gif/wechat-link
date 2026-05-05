@@ -3,269 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ARTISAN STUDIO · 高定服饰工坊</title>
+    <title>ARTISAN STUDIO</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            background: #111;
-            color: #fff;
-            line-height: 1.6;
-            padding-bottom: calc(140px + env(safe-area-inset-bottom));
-        }
-
-        /* 全机型首屏适配 —— 永远居中不被挡 */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: url('https://i.postimg.cc/RhGpZjSd/beijing.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px 20px 120px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 1;
-        }
-
-        .hero * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* LOGO 位置全局统一 */
-        .logo-img {
-            width: 100px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .brand-title {
-            font-size: 34px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .brand-subtitle {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-bottom: 30px;
-            display: flex;
-            gap: 24px;
-        }
-
-        .hero-slogan {
-            font-size: 22px;
-            margin-bottom: 14px;
-        }
-
-        .hero-desc {
-            font-size: 15px;
-            opacity: 0.9;
-            max-width: 360px;
-            margin: 0 auto 30px;
-        }
-
-        /* 二维码 —— 全机型永远完整显示 */
-        .qrcode-wrap {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .qrcode-img {
-            width: 160px;
-            border-radius: 10px;
-        }
-
-        .qrcode-tip {
-            font-size: 14px;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* 产品区域 —— 不会被按钮遮挡 */
-        .products-section {
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 22px;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
-
-        .product-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        .product-item {
-            width: 100%;
-        }
-
-        .product-title {
-            font-size: 16px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .product-img {
-            width: 100%;
-            border-radius: 14px;
-        }
-
-        .footer-contact {
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* ------------------------------ */
-        /* 🔥 全机型固定底部按钮 永不遮挡 */
-        /* ------------------------------ */
-        .fixed-bottom-bar {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.93);
-            padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
-            z-index: 999;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            padding: 16px;
-            border-radius: 14px;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            text-align: center;
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-green {
-            background: #07c160;
-        }
-
-        .btn-gray {
-            background: #333;
-        }
-
-        .copy-tip {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            background: rgba(0,0,0,0.75);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 15px;
-            z-index: 9999;
-            display: none;
-        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+        html,body{width:100%;min-height:100vh;background:#111;color:#fff;padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+        .hero{width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000}
+        .logo{width:90px;border-radius:50%;margin-bottom:20px}
+        .title{font-size:30px;font-weight:300;margin-bottom:10px}
+        .sub{font-size:14px;opacity:.8;margin-bottom:25px;display:flex;gap:20px}
+        .slogan{font-size:19px;margin-bottom:15px}
+        .desc{font-size:14px;opacity:.9;max-width:330px;margin:0 auto 20px}
+        .qrcode{margin-top:10px}
+        .qrcode img{width:140px;border-radius:8px}
+        .qrcode-text{font-size:13px;margin-top:8px;opacity:.9}
+        .products{padding:50px 20px}
+        .products-title{text-align:center;font-size:20px;margin-bottom:25px}
+        .footer{padding:20px;text-align:center;font-size:13px;opacity:.7}
+        .fixed-bottom{position:fixed;left:0;right:0;bottom:0;background:#000;padding:10px 20px calc(10px + env(safe-area-inset-bottom));z-index:999}
+        .btn-group{display:flex;flex-direction:column;gap:8px;max-width:360px;margin:0 auto}
+        .btn{padding:13px;border-radius:12px;border:none;font-size:15px;text-align:center;color:#fff}
+        .btn-green{background:#07c160}
+        .btn-gray{background:#333}
+        .tip{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;color:#fff;padding:10px;border-radius:8px;font-size:14px;display:none}
     </style>
 </head>
-
 <body>
 
 <div class="hero">
-    <img class="logo-img" src="https://i.postimg.cc/g2hrFd2W/logo.jpg" alt="LOGO">
-    <div class="brand-title">ARTISAN STUDIO</div>
-    <div class="brand-subtitle">
-        <span>同源面料</span>
-        <span>原版工艺</span>
-    </div>
-
-    <div class="hero-slogan">像素级还原 · 资深玩家的最终归属</div>
-    <div class="hero-desc">
-        无惧放大镜视角的严苛推敲<br>
-        多位海内外资深工匠 | 同源皮料/面料<br>
-        专注版型与细节 | 专柜级品质
-    </div>
-
-    <div class="qrcode-wrap">
-        <img class="qrcode-img" src="https://i.postimg.cc/Sx9jFqNT/qrcode.png" alt="微信二维码">
-        <div class="qrcode-tip">扫码添加微信：BLCG0592</div>
+    <img class="logo" src="https://i.postimg.cc/g2hrFd2W/logo.jpg">
+    <div class="title">ARTISAN STUDIO</div>
+    <div class="sub"><span>同源面料</span><span>原版工艺</span></div>
+    <div class="slogan">像素级还原 · 资深玩家的最终归属</div>
+    <div class="desc">无惧放大镜视角的严苛推敲<br>多位海内外资深工匠 | 同源皮料/面料</div>
+    <div class="qrcode">
+        <img src="https://i.postimg.cc/Sx9jFqNT/qrcode.png">
+        <div class="qrcode-text">扫码添加微信：BLCG0592</div>
     </div>
 </div>
 
-<div class="products-section">
-    <div class="section-title">产品实拍 / 工艺细节</div>
-    <div class="product-gallery">
-        <div class="product-item">
-            <div class="product-title">产品细节 1</div>
-            <img class="product-img" src="产品图1链接" alt="">
-        </div>
-        <div class="product-item">
-            <div class="product-title">产品细节 2</div>
-            <img class="product-img" src="产品图2链接" alt="">
-        </div>
-        <div class="product-item">
-            <div class="product-title">产品细节 3</div>
-            <img class="product-img" src="产品图3链接" alt="">
-        </div>
-    </div>
+<div class="products">
+    <div class="products-title">产品实拍 / 工艺细节</div>
 </div>
 
-<div class="footer-contact">
-    微信：BLCG0592 | 全球可发 | 专注高端复刻
-</div>
+<div class="footer">微信：BLCG0592 | 全球可发</div>
 
-<!-- 全机型固定底部按钮 -->
-<div class="fixed-bottom-bar">
+<div class="fixed-bottom">
     <div class="btn-group">
-        <a href="https://rr1.xindinet.cn/wap/1655/" class="btn btn-green">
-            点击进入官方店铺
-        </a>
-        <div class="btn btn-gray" onclick="copyWechat()">
-            点击复制微信：BLCG0592
-        </div>
+        <a href="https://rr1.xindinet.cn/wap/1655/" class="btn btn-green">点击进入官方店铺</a>
+        <div class="btn btn-gray" onclick="copyWechat()">点击复制微信：BLCG0592</div>
     </div>
 </div>
 
-<div class="copy-tip" id="copyTip">✅ 已复制，去微信粘贴添加</div>
+<div class="tip" id="tip">✅ 已复制</div>
 
 <script>
-function copyWechat() {
-  navigator.clipboard.writeText("BLCG0592").then(() => {
-    let t = document.getElementById("copyTip");
-    t.style.display = "block";
-    setTimeout(() => t.style.display = "none", 2000);
-  });
+function copyWechat(){
+    navigator.clipboard.writeText("BLCG0592");
+    let t=document.getElementById("tip");
+    t.style.display="block";
+    setTimeout(()=>t.style.display="none",1500);
 }
 </script>
 
