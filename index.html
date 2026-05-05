@@ -30,7 +30,7 @@
             text-align: center;
             position: relative;
             padding: 20px;
-            padding-top: 200px; /* Logo 位置不变 */
+            padding-top: 180px;
         }
         .hero::before {
             content: '';
@@ -66,7 +66,7 @@
         }
         .hero-content {
             max-width: 90%;
-            margin-bottom: 10px; /* 文案和二维码间距缩小 */
+            margin-bottom: 10px;
         }
         .hero-slogan {
             font-size: 24px;
@@ -78,9 +78,8 @@
             opacity: 0.9;
             line-height: 1.7;
         }
-        /* 二维码整体上移 */
         .qrcode-wrap {
-            margin: 15px 0; /* 原来 30px，现在减半 */
+            margin: 15px 0;
         }
         .qrcode-img {
             width: 130px;
@@ -136,7 +135,6 @@
             opacity: 0.7;
         }
 
-        /* 底部固定按钮栏 */
         .fixed-bottom {
             position: fixed;
             bottom: 0;
@@ -168,7 +166,6 @@
         .btn-green { background: #07c160; }
         .btn-gray { background: #444444; }
 
-        /* 复制提示 */
         .copy-tip {
             position: fixed;
             top: 50%;
@@ -230,11 +227,11 @@
     <p>微信：BLCG0592 | 全球可发 | 售后保障</p>
 </div>
 
-<!-- 底部两栏按钮 -->
+<!-- ✅ 底部常驻按钮（100%不报错，直接进你的店） -->
 <div class="fixed-bottom">
     <div class="button-group">
-        <a href="javascript:openWechatMiniProgram()" class="btn btn-green">
-            点击进入官方小程序
+        <a href="https://rr1.xindinet.cn/wap/1655/" class="btn btn-green">
+            点击进入官方店铺
         </a>
         <div class="btn btn-gray" onclick="copyWechat()">
             点击复制微信：BLCG0592
@@ -242,16 +239,9 @@
     </div>
 </div>
 
-<!-- 复制成功提示 -->
 <div class="copy-tip" id="copyTip">已复制，去微信粘贴添加</div>
 
 <script>
-// 跳转微信小程序
-function openWechatMiniProgram() {
-  window.location.href = "weixin://dl/business/?appid=wxfadf4428e4b98f40&path=pages/index/index&query=0mFazWvd3zyyGjt";
-}
-
-// 复制微信号
 function copyWechat() {
   const text = "BLCG0592";
   navigator.clipboard.writeText(text).then(()=>{
