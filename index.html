@@ -29,6 +29,7 @@
             align-items: center;
             text-align: center;
             position: relative;
+            padding: 20px;
         }
         .hero::before {
             content: '';
@@ -39,48 +40,48 @@
         }
         .hero > * { position: relative; z-index: 10; }
         .logo-img {
-            width: 130px;
+            width: 100px;
             height: auto;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             object-fit: cover;
         }
         .brand-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 300;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
         }
         .brand-subtitle {
-            font-size: 16px;
+            font-size: 14px;
             opacity: 0.8;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
             display: flex;
-            gap: 40px;
+            gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
         }
         .hero-content {
             max-width: 90%;
-            margin-bottom: 30px;
-        }
-        .hero-slogan {
-            font-size: 28px;
-            font-weight: 500;
             margin-bottom: 20px;
         }
+        .hero-slogan {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
         .hero-desc {
-            font-size: 18px;
+            font-size: 16px;
             opacity: 0.9;
-            line-height: 1.8;
+            line-height: 1.7;
         }
         /* 二维码区域 */
         .qrcode-wrap {
-            margin: 25px 0;
+            margin: 20px 0;
         }
         .qrcode-img {
-            width: 140px;
+            width: 130px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -90,24 +91,25 @@
             opacity: 0.8;
             margin-top: 8px;
         }
+        /* 联系按钮组 */
         .contact-buttons {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            width: 90%;
+            gap: 12px;
+            width: 100%;
             max-width: 400px;
         }
         .btn {
-            padding: 16px 20px;
+            padding: 14px 18px;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 500;
             cursor: pointer;
             text-align: left;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             transition: opacity 0.2s;
         }
         .btn:hover { opacity: 0.9; }
@@ -116,30 +118,38 @@
         .btn-line { background-color: #00C300; color: #fff; }
         /* 产品区 */
         .products-section {
-            padding: 60px 20px;
+            padding: 50px 20px;
             background-color: #111;
         }
         .section-title {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 40px;
+            font-size: 22px;
+            margin-bottom: 30px;
             letter-spacing: 2px;
         }
         .product-gallery {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
+        }
+        .product-item {
+            width: 100%;
+            max-width: 500px;
+        }
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.8;
         }
         .product-img {
             width: 100%;
-            max-width: 500px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         /* 底部 */
         .footer-contact {
-            padding: 40px 20px;
+            padding: 30px 20px;
             background-color: #111;
             border-top: 1px solid #333;
             text-align: center;
@@ -187,9 +197,18 @@
     <div class="products-section">
         <div class="section-title">产品实拍 / 工艺细节</div>
         <div class="product-gallery">
-            <img class="product-img" src="产品图1链接" alt="产品细节1">
-            <img class="product-img" src="产品图2链接" alt="产品细节2">
-            <img class="product-img" src="产品图3链接" alt="产品细节3">
+            <div class="product-item">
+                <div class="product-title">产品细节1</div>
+                <img class="product-img" src="产品图1链接" alt="产品细节1">
+            </div>
+            <div class="product-item">
+                <div class="product-title">产品细节2</div>
+                <img class="product-img" src="产品图2链接" alt="产品细节2">
+            </div>
+            <div class="product-item">
+                <div class="product-title">产品细节3</div>
+                <img class="product-img" src="产品图3链接" alt="产品细节3">
+            </div>
         </div>
     </div>
     <div class="footer-contact">
