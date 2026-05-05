@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Artisan Studio</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,7 +14,6 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-/* 背景图优化：保证高清不模糊，不拉伸 */
 .bg {
   position: fixed;
   top: 0; left: 0;
@@ -26,7 +25,6 @@ body {
   object-fit: cover;
   object-position: center;
 }
-/* 半透明遮罩，文字更清晰 */
 .overlay {
   position: fixed;
   top: 0; left: 0;
@@ -57,14 +55,14 @@ body {
   font-size: 16px;
   margin-bottom: 24px;
   color: #ccc;
+  line-height: 1.6;
 }
 .desc {
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.9;
   margin-bottom: 40px;
   color: #ddd;
 }
-/* 按钮样式，和你原来的绿色保持一致 */
 .btn {
   display: block;
   width: 100%;
@@ -75,10 +73,9 @@ body {
   font-size: 18px;
   border-radius: 8px;
   font-weight: bold;
-  transition: opacity 0.2s;
-}
-.btn:hover {
-  opacity: 0.9;
+  line-height: 1.4;
+  border: none;
+  cursor: pointer;
 }
 .btn-tip {
   font-size: 12px;
@@ -88,28 +85,44 @@ body {
 </style>
 </head>
 <body>
-<!-- 背景图（优化后不模糊） -->
 <div class="bg">
-  <img src="https://i.ibb.co/Z1F7t0J/bg-shop.jpg" alt="Shop Background">
+  <img src="https://i.ibb.co/Fk97VdRg/bg.jpg" alt="Shop Background">
 </div>
 <div class="overlay"></div>
 
 <div class="content">
-  <!-- Logo -->
-  <img src="https://i.ibb.co/6bZ1W0H/logo-as.png" class="logo" alt="Artisan Studio Logo">
+  <img src="https://i.ibb.co/9kMRsgft/logo.png" class="logo" alt="Artisan Studio Logo">
   
   <h1 class="title">ARTISAN STUDIO</h1>
-  <p class="subtitle">8 Years Original Development • Top Tier Replica</p>
-  
+
+  <p class="subtitle">8 Years Original Development • 八年原版开发<br>Top Tier Replica • 高端复刻天花板</p>
+
   <div class="desc">
-    Luxury Shoes & Apparel<br>
-    Worldwide Shipping | Credit Card Accepted<br>
-    7-Day Hassle-Free Returns
+    Luxury Shoes & Apparel • 奢牌鞋服对标顶级工艺<br>
+    Worldwide Shipping • 全球可发 | Credit Card Accepted • 支持信用卡<br>
+    7-Day Hassle-Free Returns • 7天无理由退换
   </div>
 
-  <!-- 跳转按钮 -->
-  <a href="qr.html" class="btn">Add Me On WeChat</a>
-  <p class="btn-tip">Tap to view QR code, long press to add</p>
+  <button class="btn" onclick="jumpWechat()">WeChat / 微信<br>BLCG0592</button>
+  <p class="btn-tip">Tap to open WeChat scan / 点击唤起微信扫一扫</p>
 </div>
+
+<script>
+function jumpWechat(){
+  // 尝试唤起微信自带扫一扫
+  let scheme = "weixin://scanqrcode";
+  let a = document.createElement('a');
+  a.href = scheme;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  // 500ms 唤起失败自动跳二维码页面
+  setTimeout(function(){
+    window.location.href = "qr.html";
+  },500);
+}
+</script>
+
 </body>
 </html>
