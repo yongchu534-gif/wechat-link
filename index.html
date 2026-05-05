@@ -2,201 +2,219 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ARTISAN STUDIO · 高定服饰工坊</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
-        body {
-            background-color: #111;
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background: #111;
             color: #fff;
             line-height: 1.6;
-            padding-bottom: 160px;
+            padding-bottom: calc(140px + env(safe-area-inset-bottom));
         }
+
+        /* 全机型首屏适配 —— 永远居中不被挡 */
         .hero {
-            width: 100vw;
-            height: 100vh;
-            background-image: url('https://i.postimg.cc/RhGpZjSd/beijing1.jpg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: url('https://i.postimg.cc/RhGpZjSd/beijing.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            position: relative;
-            padding: 20px;
-            padding-top: 180px;
+            padding: 20px 20px 120px;
         }
+
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.55);
             z-index: 1;
         }
-        .hero > * { position: relative; z-index: 10; }
 
+        .hero * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* LOGO 位置全局统一 */
         .logo-img {
             width: 100px;
-            height: auto;
             border-radius: 50%;
-            margin-bottom: 25px;
-            object-fit: cover;
-        }
-        .brand-title {
-            font-size: 36px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
-        }
-        .brand-subtitle {
-            font-size: 14px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .hero-content {
-            max-width: 90%;
-            margin-bottom: 10px;
-        }
-        .hero-slogan {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .hero-desc {
-            font-size: 16px;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-        .qrcode-wrap {
-            margin: 15px 0;
-        }
-        .qrcode-img {
-            width: 130px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .qrcode-tip {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-top: 8px;
+            margin-bottom: 20px;
         }
 
-        .products-section {
-            padding: 120px 20px 60px;
-            background-color: #111;
+        .brand-title {
+            font-size: 34px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
+
+        .brand-subtitle {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 24px;
+        }
+
+        .hero-slogan {
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            opacity: 0.9;
+            max-width: 360px;
+            margin: 0 auto 30px;
+        }
+
+        /* 二维码 —— 全机型永远完整显示 */
+        .qrcode-wrap {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qrcode-img {
+            width: 160px;
+            border-radius: 10px;
+        }
+
+        .qrcode-tip {
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* 产品区域 —— 不会被按钮遮挡 */
+        .products-section {
+            padding: 80px 20px;
+        }
+
         .section-title {
             text-align: center;
             font-size: 22px;
             margin-bottom: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
+
         .product-gallery {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            align-items: center;
+            gap: 30px;
+            max-width: 450px;
+            margin: 0 auto;
         }
+
         .product-item {
             width: 100%;
-            max-width: 500px;
         }
+
         .product-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            opacity: 0.8;
+            font-size: 16px;
+            margin-bottom: 12px;
+            text-align: center;
         }
+
         .product-img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-radius: 14px;
         }
 
         .footer-contact {
             padding: 30px 20px;
-            background-color: #111;
-            border-top: 1px solid #333;
             text-align: center;
-        }
-        .footer-contact p {
-            font-size: 16px;
+            font-size: 14px;
             opacity: 0.7;
         }
 
-        .fixed-bottom {
+        /* ------------------------------ */
+        /* 🔥 全机型固定底部按钮 永不遮挡 */
+        /* ------------------------------ */
+        .fixed-bottom-bar {
             position: fixed;
-            bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.92);
-            padding: 15px 20px;
+            bottom: 0;
+            background: rgba(0,0,0,0.93);
+            padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
             z-index: 999;
         }
-        .button-group {
+
+        .btn-group {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-width: 450px;
+            max-width: 400px;
             margin: 0 auto;
         }
+
         .btn {
-            padding: 14px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 14px;
             border: none;
             font-size: 16px;
             font-weight: 500;
             text-align: center;
-            text-decoration: none;
             color: #fff;
-            display: block;
             cursor: pointer;
+            text-decoration: none;
         }
-        .btn-green { background: #07c160; }
-        .btn-gray { background: #444444; }
+
+        .btn-green {
+            background: #07c160;
+        }
+
+        .btn-gray {
+            background: #333;
+        }
 
         .copy-tip {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 24px;
+            border-radius: 10px;
             font-size: 15px;
+            z-index: 9999;
             display: none;
-            z-index: 1000;
         }
     </style>
 </head>
+
 <body>
 
 <div class="hero">
-    <img class="logo-img" src="https://i.postimg.cc/g2hrFd2W/logo.jpg" alt="Logo">
+    <img class="logo-img" src="https://i.postimg.cc/g2hrFd2W/logo.jpg" alt="LOGO">
     <div class="brand-title">ARTISAN STUDIO</div>
     <div class="brand-subtitle">
         <span>同源面料</span>
         <span>原版工艺</span>
     </div>
-    <div class="hero-content">
-        <div class="hero-slogan">像素级还原 · 资深玩家的最终归属</div>
-        <div class="hero-desc">
-            无惧任何放大镜视角的严苛推敲<br>
-            多位海内外资深工匠 | 同源皮料/面料 | 原版工艺<br>
-            一位师傅只专注一个版型 | 跨季配货的专柜级交付
-        </div>
+
+    <div class="hero-slogan">像素级还原 · 资深玩家的最终归属</div>
+    <div class="hero-desc">
+        无惧放大镜视角的严苛推敲<br>
+        多位海内外资深工匠 | 同源皮料/面料<br>
+        专注版型与细节 | 专柜级品质
     </div>
 
     <div class="qrcode-wrap">
@@ -209,27 +227,27 @@
     <div class="section-title">产品实拍 / 工艺细节</div>
     <div class="product-gallery">
         <div class="product-item">
-            <div class="product-title">产品细节1</div>
-            <img class="product-img" src="产品图1链接" alt="产品细节1">
+            <div class="product-title">产品细节 1</div>
+            <img class="product-img" src="产品图1链接" alt="">
         </div>
         <div class="product-item">
-            <div class="product-title">产品细节2</div>
-            <img class="product-img" src="产品图2链接" alt="产品细节2">
+            <div class="product-title">产品细节 2</div>
+            <img class="product-img" src="产品图2链接" alt="">
         </div>
         <div class="product-item">
-            <div class="product-title">产品细节3</div>
-            <img class="product-img" src="产品图3链接" alt="产品细节3">
+            <div class="product-title">产品细节 3</div>
+            <img class="product-img" src="产品图3链接" alt="">
         </div>
     </div>
 </div>
 
 <div class="footer-contact">
-    <p>微信：BLCG0592 | 全球可发 | 售后保障</p>
+    微信：BLCG0592 | 全球可发 | 专注高端复刻
 </div>
 
-<!-- ✅ 底部常驻按钮（100%不报错，直接进你的店） -->
-<div class="fixed-bottom">
-    <div class="button-group">
+<!-- 全机型固定底部按钮 -->
+<div class="fixed-bottom-bar">
+    <div class="btn-group">
         <a href="https://rr1.xindinet.cn/wap/1655/" class="btn btn-green">
             点击进入官方店铺
         </a>
@@ -239,17 +257,14 @@
     </div>
 </div>
 
-<div class="copy-tip" id="copyTip">已复制，去微信粘贴添加</div>
+<div class="copy-tip" id="copyTip">✅ 已复制，去微信粘贴添加</div>
 
 <script>
 function copyWechat() {
-  const text = "BLCG0592";
-  navigator.clipboard.writeText(text).then(()=>{
-      const tip = document.getElementById("copyTip");
-      tip.style.display = "block";
-      setTimeout(()=>{ tip.style.display = "none"; }, 2000);
-  }).catch(()=>{
-      alert("复制失败，请手动添加微信：BLCG0592");
+  navigator.clipboard.writeText("BLCG0592").then(() => {
+    let t = document.getElementById("copyTip");
+    t.style.display = "block";
+    setTimeout(() => t.style.display = "none", 2000);
   });
 }
 </script>
