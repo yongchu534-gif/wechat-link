@@ -108,6 +108,7 @@
             align-items: center;
             gap: 10px;
             transition: opacity 0.2s;
+            text-decoration: none;
         }
         .btn:hover { opacity: 0.9; }
         .btn-wechat { background-color: #07C160; color: #fff; }
@@ -179,10 +180,10 @@
     </div>
 
     <div class="contact-buttons">
-        <!-- ✅ 已绑定你的小程序，点击直接跳转 -->
-        <button class="btn btn-wechat" onclick="openMiniProgram()">
+        <!-- ✅ 已绑定你的小程序链接，点击直接跳转 -->
+        <a href="#小程序://AS臻选/0mFazWvd3zyyGjt" class="btn btn-wechat">
             <span>💬</span> 点击进入官方小程序
-        </button>
+        </a>
 
         <button class="btn btn-whatsapp">
             <span>📞</span> 点击添加WhatsApp
@@ -214,13 +215,6 @@
 <div class="footer-contact">
     <p>微信：BLCG0592 | 全球可发 | 售后保障</p>
 </div>
-
-<script>
-// 已填入你的小程序信息：gh_438b5224dc09
-function openMiniProgram() {
-  window.location.href = "weixin://dl/business/?appid=gh_438b5224dc09&path=pages/index/index";
-}
-</script>
 
 </body>
 </html>
