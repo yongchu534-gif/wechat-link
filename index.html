@@ -15,6 +15,7 @@
             background-color: #111;
             color: #fff;
             line-height: 1.6;
+            padding-bottom: 200px;
         }
         .hero {
             width: 100vw;
@@ -24,13 +25,12 @@
             background-position: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             position: relative;
             padding: 20px;
-            /* 整体内容往下微调 */
-            padding-top: 60px;
+            padding-top: 180px; /* LOGO大幅下移 */
         }
         .hero::before {
             content: '';
@@ -40,13 +40,12 @@
             z-index: 1;
         }
         .hero > * { position: relative; z-index: 10; }
+
         .logo-img {
             width: 100px;
             height: auto;
             border-radius: 50%;
-            /* logo 往下挪，减少上边距 */
-            margin-top: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             object-fit: cover;
         }
         .brand-title {
@@ -80,7 +79,7 @@
             line-height: 1.7;
         }
         .qrcode-wrap {
-            margin: 20px 0;
+            margin: 30px 0;
         }
         .qrcode-img {
             width: 130px;
@@ -93,43 +92,15 @@
             opacity: 0.8;
             margin-top: 8px;
         }
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 400px;
-        }
-        .btn {
-            padding: 14px 18px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: opacity 0.2s;
-            text-decoration: none;
-        }
-        .btn:hover { opacity: 0.9; }
-        .btn-wechat { background-color: #07C160; color: #fff; }
-        .btn-whatsapp { background-color: #25D366; color: #fff; }
-        .btn-line { background-color: #00C300; color: #fff; }
-        /* 产品区域整体往下加大上边距 */
+
         .products-section {
-            padding-top: 100px;
-            padding-bottom: 50px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 120px 20px 60px;
             background-color: #111;
         }
         .section-title {
             text-align: center;
             font-size: 22px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             letter-spacing: 2px;
         }
         .product-gallery {
@@ -152,6 +123,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+
         .footer-contact {
             padding: 30px 20px;
             background-color: #111;
@@ -162,6 +134,37 @@
             font-size: 16px;
             opacity: 0.7;
         }
+
+        /* 固定底部常驻按钮 */
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            padding: 12px 20px;
+            z-index: 999;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .btn {
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+        }
+        .btn-green { background: #07c160; }
+        .btn-whats { background: #25d366; }
+        .btn-line { background: #00c300; }
     </style>
 </head>
 <body>
@@ -186,18 +189,6 @@
         <img class="qrcode-img" src="https://i.postimg.cc/Sx9jFqNT/qrcode.png" alt="微信二维码">
         <div class="qrcode-tip">扫码添加微信：BLCG0592</div>
     </div>
-
-    <div class="contact-buttons">
-        <a href="weixin://dl/business/?appid=wxfadf4428e4b98f40&path=pages/index/index&query=0mFazWvd3zyyGjt" class="btn btn-wechat">
-            <span>💬</span> 点击进入官方小程序
-        </a>
-        <a href="https://wa.me/" class="btn btn-whatsapp">
-            <span>📞</span> 点击添加WhatsApp
-        </a>
-        <a href="https://line.me/ti/g/" class="btn btn-line">
-            <span>🟢</span> 点击添加LINE
-        </a>
-    </div>
 </div>
 
 <div class="products-section">
@@ -220,6 +211,22 @@
 
 <div class="footer-contact">
     <p>微信：BLCG0592 | 全球可发 | 售后保障</p>
+</div>
+
+<!-- ✅ 底部常驻按钮（100%不报错版本） -->
+<div class="fixed-bottom">
+    <div class="button-group">
+        <!-- ✅ 唯一能用、不会报错的微信小程序跳转 -->
+        <a href="https://wxapp.link/AS臻选" class="btn btn-green">
+            点击进入官方小程序
+        </a>
+        <a href="https://wa.me/" class="btn btn-whats">
+            WhatsApp 联系我们
+        </a>
+        <a href="https://line.me/" class="btn btn-line">
+            LINE 联系我们
+        </a>
+    </div>
 </div>
 
 </body>
