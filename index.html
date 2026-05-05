@@ -15,7 +15,7 @@
             background-color: #111;
             color: #fff;
             line-height: 1.6;
-            padding-bottom: 200px;
+            padding-bottom: 160px;
         }
         .hero {
             width: 100vw;
@@ -30,7 +30,7 @@
             text-align: center;
             position: relative;
             padding: 20px;
-            padding-top: 180px; /* LOGO大幅下移 */
+            padding-top: 200px; /* Logo 位置不变 */
         }
         .hero::before {
             content: '';
@@ -66,7 +66,7 @@
         }
         .hero-content {
             max-width: 90%;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* 文案和二维码间距缩小 */
         }
         .hero-slogan {
             font-size: 24px;
@@ -78,8 +78,9 @@
             opacity: 0.9;
             line-height: 1.7;
         }
+        /* 二维码整体上移 */
         .qrcode-wrap {
-            margin: 30px 0;
+            margin: 15px 0; /* 原来 30px，现在减半 */
         }
         .qrcode-img {
             width: 130px;
@@ -135,36 +136,52 @@
             opacity: 0.7;
         }
 
-        /* 固定底部常驻按钮 */
+        /* 底部固定按钮栏 */
         .fixed-bottom {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.9);
-            padding: 12px 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 15px 20px;
             z-index: 999;
         }
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             max-width: 450px;
             margin: 0 auto;
         }
         .btn {
             padding: 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             border: none;
             font-size: 16px;
             font-weight: 500;
             text-align: center;
             text-decoration: none;
             color: #fff;
+            display: block;
+            cursor: pointer;
         }
         .btn-green { background: #07c160; }
-        .btn-whats { background: #25d366; }
-        .btn-line { background: #00c300; }
+        .btn-gray { background: #444444; }
+
+        /* 复制提示 */
+        .copy-tip {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            display: none;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -213,21 +230,39 @@
     <p>微信：BLCG0592 | 全球可发 | 售后保障</p>
 </div>
 
-<!-- ✅ 底部常驻按钮（100%不报错版本） -->
+<!-- 底部两栏按钮 -->
 <div class="fixed-bottom">
     <div class="button-group">
-        <!-- ✅ 唯一能用、不会报错的微信小程序跳转 -->
-        <a href="https://wxapp.link/AS臻选" class="btn btn-green">
+        <a href="javascript:openWechatMiniProgram()" class="btn btn-green">
             点击进入官方小程序
         </a>
-        <a href="https://wa.me/" class="btn btn-whats">
-            WhatsApp 联系我们
-        </a>
-        <a href="https://line.me/" class="btn btn-line">
-            LINE 联系我们
-        </a>
+        <div class="btn btn-gray" onclick="copyWechat()">
+            点击复制微信：BLCG0592
+        </div>
     </div>
 </div>
+
+<!-- 复制成功提示 -->
+<div class="copy-tip" id="copyTip">已复制，去微信粘贴添加</div>
+
+<script>
+// 跳转微信小程序
+function openWechatMiniProgram() {
+  window.location.href = "weixin://dl/business/?appid=wxfadf4428e4b98f40&path=pages/index/index&query=0mFazWvd3zyyGjt";
+}
+
+// 复制微信号
+function copyWechat() {
+  const text = "BLCG0592";
+  navigator.clipboard.writeText(text).then(()=>{
+      const tip = document.getElementById("copyTip");
+      tip.style.display = "block";
+      setTimeout(()=>{ tip.style.display = "none"; }, 2000);
+  }).catch(()=>{
+      alert("复制失败，请手动添加微信：BLCG0592");
+  });
+}
+</script>
 
 </body>
 </html>
