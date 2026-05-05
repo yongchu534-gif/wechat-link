@@ -2,45 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Add WeChat</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  background:#000;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-  padding:20px;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
 }
-.tip{
-  font-size:18px;
-  margin-bottom:30px;
-  text-align:center;
-  line-height:1.5;
+.tip {
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.5;
 }
-.qr-code{
-  width:280px;
-  border-radius:8px;
-  margin-bottom:30px;
+.qr-code {
+  width: 280px;
+  max-width: 90%;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  /* 防止图片被浏览器压缩模糊 */
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
 }
-.back-btn{
-  padding:12px 24px;
-  background:#00C851;
-  color:#fff;
-  text-decoration:none;
-  border-radius:4px;
-  font-size:16px;
+.back-btn {
+  padding: 12px 24px;
+  background: #00C851;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
 }
 </style>
 </head>
 <body>
-<p class="tip">Long press QR Code<br>Add WeChat Directly</p>
-<img src="https://i.ibb.co/4g8YHyqq/qr.png" class="qr-code">
-<a href="index.html" class="back-btn">Back</a>
+<p class="tip">👇 Long Press the QR Code<br>Tap "Scan QR Code" to Add Me</p>
+<img src="https://i.ibb.co/P5dQ6Xv/qr-wechat.png" class="qr-code" alt="WeChat QR Code">
+<a href="index.html" class="back-btn">Back to Home</a>
 </body>
 </html>
