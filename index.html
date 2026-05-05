@@ -29,6 +29,8 @@
             text-align: center;
             position: relative;
             padding: 20px;
+            /* 整体内容往下微调 */
+            padding-top: 60px;
         }
         .hero::before {
             content: '';
@@ -42,6 +44,8 @@
             width: 100px;
             height: auto;
             border-radius: 50%;
+            /* logo 往下挪，减少上边距 */
+            margin-top: 20px;
             margin-bottom: 15px;
             object-fit: cover;
         }
@@ -114,8 +118,12 @@
         .btn-wechat { background-color: #07C160; color: #fff; }
         .btn-whatsapp { background-color: #25D366; color: #fff; }
         .btn-line { background-color: #00C300; color: #fff; }
+        /* 产品区域整体往下加大上边距 */
         .products-section {
-            padding: 50px 20px;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
             background-color: #111;
         }
         .section-title {
@@ -180,17 +188,15 @@
     </div>
 
     <div class="contact-buttons">
-        <!-- ✅ 已绑定你的小程序链接，点击直接跳转 -->
-        <a href="#小程序://AS臻选/0mFazWvd3zyyGjt" class="btn btn-wechat">
+        <a href="weixin://dl/business/?appid=wxfadf4428e4b98f40&path=pages/index/index&query=0mFazWvd3zyyGjt" class="btn btn-wechat">
             <span>💬</span> 点击进入官方小程序
         </a>
-
-        <button class="btn btn-whatsapp">
+        <a href="https://wa.me/" class="btn btn-whatsapp">
             <span>📞</span> 点击添加WhatsApp
-        </button>
-        <button class="btn btn-line">
+        </a>
+        <a href="https://line.me/ti/g/" class="btn btn-line">
             <span>🟢</span> 点击添加LINE
-        </button>
+        </a>
     </div>
 </div>
 
